@@ -8,10 +8,10 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Review from './components/review/Review';
-import Inventory from './components/Inventory/Inventory';
-import Not_Found from './components/Not Found/Not_Found';
-import ProductDetails from './components/ProductDetails/ProductDetails';
+import Review from './components/review/Review.js';
+import Inventory from './components/Inventory/Inventory.js';
+import Not_Found from './components/Not Found/Not_Found.js';
+import ProductDetails from './components/ProductDetails/ProductDetails.js';
 import Shipment from './components/Shipment/Shipment';
 import Login from './components/Login/Login';
 import { createContext } from 'react';
