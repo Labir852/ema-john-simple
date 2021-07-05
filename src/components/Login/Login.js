@@ -78,6 +78,7 @@ const googleSignIn = () =>{
   handleGoogleSignin()
   .then(res=>{
     handleResponse(res,true);
+    console.log(res);
   })
 }
 const SignOut = () =>{

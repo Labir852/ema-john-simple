@@ -8,7 +8,7 @@ const ProductDetails = () => {
     const [product,setProduct] = useState({});
 
     useEffect(()=>{
-        fetch('http://localhost:5000/products/'+productkey)
+        fetch('https://aqueous-ridge-39879.herokuapp.com/products/'+productkey)
         .then(res=>res.json())
         .then(data=>setProduct(data))
     },[productkey])

@@ -22,7 +22,7 @@ export const UserContext = createContext();
 
 
 function App() {
-  const [loggedInUser,setLoggedInUser] = useState({})
+  const [loggedInUser,setLoggedInUser] = useState({});
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       

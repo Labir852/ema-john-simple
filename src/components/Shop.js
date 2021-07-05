@@ -11,7 +11,7 @@ const Shop = () => {
     const [cart, setCart]= useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/products')
+        fetch('https://aqueous-ridge-39879.herokuapp.com/products')
         .then(res => res.json())
         .then(data => setProducts(data))
     },[])
@@ -19,7 +19,7 @@ const Shop = () => {
     useEffect(()=>{
         const savedCart= getDatabaseCart();
         const productKeys= Object.keys(savedCart);
-        fetch('http://localhost:5000/productsByKeys',{
+        fetch('https://aqueous-ridge-39879.herokuapp.com/productsByKeys',{
                 method: 'POST',
                 headers: {'Content-Type':'application/json'},
                 body: JSON.stringify(productKeys)
@@ -31,12 +31,13 @@ const Shop = () => {
     const handleAddProduct = (product) =>{
         //console.log("Product Added",product)
         const toBeAddedKey = product.key;
-        const sameProduct = cart.find(pd => pd.key === toBeAddedKey)
+        const sameProduct = cart.find(pd => pd.key == toBeAddedKey)
         let count = 1;
         let newCart;
         if(sameProduct){
             count =sameProduct.quantity+1;
-            sameProduct.quantity=count;
+            sameProduct.quantity+=count;
+            product.quantity = sameProduct.quantity;
             const others = cart.filter(pd => pd.key !== toBeAddedKey);
             newCart = [...others,sameProduct];
         }
@@ -46,6 +47,7 @@ const Shop = () => {
             newCart = [...cart,product];
         }
         setCart(newCart);
+        console.log(newCart);
         
         addToDatabaseCart(product.key,count);
     }
@@ -62,7 +64,7 @@ const Shop = () => {
                     ></Product>)
                 }
             </div>
-            <div className="cart-container">
+            <div className="cart-container fixed-right">
                 <Cart cart={cart}>
                 <Link to="/review"><button className="main-button">Review order</button></Link>
                 </Cart>
