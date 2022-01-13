@@ -1,22 +1,17 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
+import {
+  BrowserRouter as Router, Route, Switch
+} from "react-router-dom";
 import './App.css';
 import Header from './components/Header';
-import Shop from './components/Shop';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import Review from './components/review/Review.js';
 import Inventory from './components/Inventory/Inventory.js';
-import Not_Found from './components/Not Found/Not_Found.js';
-import ProductDetails from './components/ProductDetails/ProductDetails.js';
-import Shipment from './components/Shipment/Shipment';
 import Login from './components/Login/Login';
-import { createContext } from 'react';
-import { useState } from 'react';
+import Not_Found from './components/Not Found/Not_Found.js';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import ProductDetails from './components/ProductDetails/ProductDetails.js';
+import Review from './components/review/Review.js';
+import Shipment from './components/Shipment/Shipment';
+import Shop from './components/Shop';
 
 export const UserContext = createContext();
 
